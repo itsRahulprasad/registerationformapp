@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#A9F1DC"
+    tools:context=".loginpage">
+
+
+<!--login heading-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="LOGIN PAGE"
+        android:textSize="20dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="130dp"
+        android:textColor="#095A20"
+
+        />
+
+<!--email  field-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Email Id :-"
+            android:textColor="#073E39"
+            android:textSize="20dp"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/t1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:hint="type your email id"/>
+
+
+    </LinearLayout>
+
+<!--    password field-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Password :-"
+            android:textColor="#05574F"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/t2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:hint="type your password"/>
+
+
+    </LinearLayout>
+
+<!--login button field-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/login2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="150dp"
+            android:text="LOGIN"
+            android:backgroundTint="#198C08"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

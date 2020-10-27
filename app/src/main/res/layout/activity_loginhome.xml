@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D2E3F1"
+    tools:context=".loginhome">
+
+
+<!--login hoomepage-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="LOGIN HOME PAGE"
+        android:textSize="20dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="130dp"
+        android:textColor="#EA4917"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="20dp"
+
+        android:text="welcome to first page after login"
+        android:textColor="#185A21"
+        android:textSize="20dp"
+
+        />
+
+
+</LinearLayout>
