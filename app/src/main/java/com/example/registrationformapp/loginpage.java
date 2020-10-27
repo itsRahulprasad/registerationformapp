@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
+//checking github
 public class loginpage extends AppCompatActivity {
 
     Button login_var;
