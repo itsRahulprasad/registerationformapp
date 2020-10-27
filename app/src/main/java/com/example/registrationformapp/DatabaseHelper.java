@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 // CREATING DATABASE REGISTER.DB
 public class DatabaseHelper extends SQLiteOpenHelper {
-    SQLiteDatabase db;
-    private static final String DATABASE_PATH ="/data/data/com.example.registrationformapp/databases";
+//    SQLiteDatabase db;
+//    private static final String DATABASE_PATH ="/data/data/com.example.registrationformapp/databases";
 
 
     public static final String Database_name = "register.db";
@@ -35,11 +35,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, USER_NAME TEXT, EMAIL_ID TEXT , PHONE_NO LONG , PASSWORD TEXT , CNF_PASSWORD TEXT)");
 
     }
-    private SQLiteDatabase openDatabase(){
-        String path = DATABASE_PATH + Database_name;
-        db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
-        return db;
-    }
+//    private SQLiteDatabase openDatabase(){
+//        String path = DATABASE_PATH + Database_name;
+//        db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
+//        return db;
+//    }
 
 
     @Override
@@ -70,25 +70,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //check for login
 
 
-    public boolean checkUserExist(String email_id, String password){
-        String[] columns = {"EMAIL_ID"};
-        db = openDatabase();
-
-        String selection = "EMAIL_ID=? and PASSWORD = ?";
-        String[] selectionArgs = {email_id, password};
-
-        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
-        int count = cursor.getCount();
-
-        cursor.close();
-        close();
-
-        if(count > 0){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
+//    public boolean checkUserExist(String email_id, String password){
+//        String[] columns = {"EMAIL_ID"};
+//        db = openDatabase();
+//
+//        String selection = "EMAIL_ID=? and PASSWORD = ?";
+//        String[] selectionArgs = {email_id, password};
+//
+//        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+//        int count = cursor.getCount();
+//
+//        cursor.close();
+//        close();
+//
+//        if(count > 0){
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+//
+//
 }
