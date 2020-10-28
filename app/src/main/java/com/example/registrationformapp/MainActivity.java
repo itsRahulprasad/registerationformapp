@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                regConfpass.getText().toString()
                                );
 
-                   if (isInserted = true) {
+                   if (isInserted == true) {
                        Toast.makeText(MainActivity.this, "data inserted", Toast.LENGTH_LONG).show();
                    }
                        else {

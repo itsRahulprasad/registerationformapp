@@ -41,8 +41,26 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="90dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/displaybtn"
+        android:id="@+id/displaybtn_loginhomepage"
         android:text="display information" />
+
+    <Button
+        android:id="@+id/updateBtn_loginhomepage"
+        android:layout_width="228dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1F9717"
+        android:text="Update info" />
+
+    <Button
+        android:id="@+id/deleteBtn_loginhomepage"
+        android:layout_width="228dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#A82F26"
+        android:text="delete info" />
 
 
 </LinearLayout>
