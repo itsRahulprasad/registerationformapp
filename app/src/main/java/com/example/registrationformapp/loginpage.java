@@ -24,27 +24,15 @@ public class loginpage extends AppCompatActivity {
         setContentView(R.layout.activity_loginpage);
 
 
-        login_var = findViewById(R.id.login2);
-        regEmail = findViewById(R.id.t1);
-        regPass = findViewById(R.id.t2);
+        login_var = findViewById(R.id.loginBtn_loginpage);
+        regEmail = findViewById(R.id.email_loginpage);
+        regPass = findViewById(R.id.pass_loginpage);
 
         login_var.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                boolean isExist = databaseHelper.checkUserExist( regEmail.getText().toString(),  regPass.getText().toString());
-
-
                 Intent intent = new Intent(loginpage.this, loginhome.class);
-////                    intent.putExtra("username",  regEmail.getText().toString());
                     startActivity(intent);
-//                if(isExist){
-//                    Intent intent = new Intent(loginpage.this, loginhome.class);
-////                    intent.putExtra("username",  regEmail.getText().toString());
-//                    startActivity(intent);
-//                } else {
-//                    regPass.setText(null);
-//                    Toast.makeText(loginpage.this, "Login failed. Invalid username or password.", Toast.LENGTH_SHORT).show();
-//                }
             }
         });
 

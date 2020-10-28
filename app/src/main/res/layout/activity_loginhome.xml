@@ -36,5 +36,13 @@
 
         />
 
+    <Button
+        android:layout_width="228dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/displaybtn"
+        android:text="display information" />
+
 
 </LinearLayout>

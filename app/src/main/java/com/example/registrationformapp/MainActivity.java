@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    // -----------------main activity started here--------------------------------
+
     // deifine edittext, button etc in variable
     Button login_var;
     Button reg_var;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText regPass;
     EditText regConfpass;
 
-// databases instance
+//-- databases instance
     DatabaseHelper myDb;
 
 
@@ -29,14 +31,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // button fetching ad storing them in varaible
+
+
+        // -------button fetching ad storing them in varaible
         login_var = findViewById(R.id.loginBtn);
         reg_var = findViewById(R.id.regBtn);
 
-        //taking database, variable
-        myDb = new DatabaseHelper(this);
-
-        //finding finding id and storing them in varaible
+        //------------finding finding id and storing them in varaible
         regName = findViewById(R.id.name_id);
         regUsername = findViewById(R.id.username_id);
         regEmail = findViewById(R.id.email_id);
@@ -44,12 +45,13 @@ public class MainActivity extends AppCompatActivity {
         regPass = findViewById(R.id.pass_id);
         regConfpass = findViewById(R.id.confpass_id);
 
-        //call adddata fuction
-//
+
+        //-----taking database, variable
+        myDb = new DatabaseHelper(this);
 
 
 
-    //redirecting login button click to login page {.'. here onclick button event = setOnClickListener}
+    //---------redirecting login button click to login page {.'. here onclick button event = setOnClickListener}
         login_var.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,12 +62,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //------helper class to add or insert data in database
     public void  AddData(){
-       reg_var.setOnClickListener(
-               new View.OnClickListener() {
-                   @Override
-                   public void onClick(View v) {
-                   boolean isInserted = myDb.insertData(regName.getText().toString(),
+                   boolean isInserted = myDb.insertData(
+                               regName.getText().toString(),
                                regUsername.getText().toString(),
                                regEmail.getText().toString(),
                                regPhone.getText().toString(),
@@ -73,58 +73,51 @@ public class MainActivity extends AppCompatActivity {
                                regConfpass.getText().toString()
                                );
 
-
-                   if (isInserted = true)
-                       Toast.makeText(MainActivity.this,"data inserted", Toast.LENGTH_LONG).show();
-                       else
-                           Toast.makeText(MainActivity.this,"data not inserted", Toast.LENGTH_LONG).show();
-
+                   if (isInserted = true) {
+                       Toast.makeText(MainActivity.this, "data inserted", Toast.LENGTH_LONG).show();
                    }
-               }
-
-       );
-
-
-        };
-
-
-    //registerUser function for regiter button and it was defined in register button as onclick registerUser
-    //checking whether register button validates or not
-public void registerUser (View view){
-    submitvalidate();
-    if (!submitvalidate()){
-        Toast.makeText(this, "sibmission fail", Toast.LENGTH_SHORT).show();
-
-    }else{
-        Toast.makeText(this, "register success", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(), loginpage.class));
-      AddData();
+                       else {
+                       Toast.makeText(MainActivity.this, "data not inserted", Toast.LENGTH_LONG).show();
+                   }
 
     }
 
+    //-----------checking all validation is success or not by submitvalidate() function
+    private boolean submitvalidate(){
 
-    //------helper class to add or insert data in database
+        //--------- get all the id values in String
+        String name = regName.getText().toString();
+        String username = regUsername.getText().toString();
+        String email = regEmail.getText().toString();
+        String phone = regPhone.getText().toString();
+        String password = regPass.getText().toString();
+        String confpass = regConfpass.getText().toString();
 
-}
-
-private boolean submitvalidate(){
-    if(!validateName() | !validateUsername() | !validateEmail() | !validatePhone() | !validatePassword() | !validateConfpass())
-    {
-        return false;
+        //---------- checking if validation is done successfully or not , if yes submit or register or if not data not inserted
+        if(!validateName() | !validateUsername() | !validateEmail() | !validatePhone() | !validatePassword() | !validateConfpass())
+        {
+            return false;
+        }
+        return true;
     }
 
-// get all the id values in String
-    String name = regName.getText().toString();
-    String username = regUsername.getText().toString();
-    String email = regEmail.getText().toString();
-    String phone = regPhone.getText().toString();
-    String password = regPass.getText().toString();
-    String confpass = regConfpass.getText().toString();
+    //-------------------registerUser function for regiter button and it was defined in register button as onclick registerUser
+    //-----------------checking whether register button validates or not
+    public void registerUser (View view){
+        submitvalidate();
+        if (!submitvalidate()){
+            Toast.makeText(this, "sibmission fail", Toast.LENGTH_SHORT).show();
 
-    return true;
-}
+        }else{
+            Toast.makeText(this, "register success", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), loginpage.class));
+            AddData();
 
-// validation for name
+        }
+    }
+
+
+//---------------------- validation for name
 private Boolean validateName(){
     String val = regName.getText().toString();
 
@@ -134,13 +127,12 @@ private Boolean validateName(){
     }
     else {
         regName.setError(null);
-//        regName.setErrorEnabled(false);
         return true;
     }
 
 }
 
-    // validation for username
+    //----------------- validation for username
     private Boolean validateUsername(){
         String val = regUsername.getText().toString();
         String noWhiteSpace = "^[a-z0-9_-]{3,15}$";
@@ -160,16 +152,13 @@ private Boolean validateName(){
         }
         else {
             regUsername.setError(null);
-//            regName.setErrorEnabled(false);
-
             return true;
         }
-
     }
 
 
 
-    // validation for email
+    //------------------------- validation for email
     private Boolean validateEmail(){
         String val = regEmail.getText().toString();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -189,7 +178,7 @@ private Boolean validateName(){
     }
 
 
-    // validation for phone
+    // --------------------------validation for phone
     private Boolean validatePhone(){
         String val = regPhone.getText().toString();
         String valphone= "(0/91)?[7-9][0-9]{9}";
@@ -208,7 +197,7 @@ private Boolean validateName(){
 
     }
 
-    // validation for password
+    //------------------------------ validation for password
     private Boolean validatePassword(){
         String val = regPass.getText().toString();
         String passwordVal= "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
@@ -229,21 +218,16 @@ private Boolean validateName(){
 
     }
 
-    // validation for confirm password
+    // ------------------ validation for confirm password
     private Boolean validateConfpass(){
         String val = regPass.getText().toString();
         String val1= regConfpass.getText().toString();
 
         if(val.equals(val1)){
-//            regConfpass.setError("password did not matched");
-//            return false;
             regConfpass.setError(null);
             return true;
         }
         else {
-//            regConfpass.setError(null);
-//            return true;
-
             regConfpass.setError("password did not matched");
             return false;
         }
@@ -252,5 +236,5 @@ private Boolean validateName(){
 
 
 
-
+//main activity ends here----------------------------------------------------
 }
