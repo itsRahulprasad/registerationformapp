@@ -103,6 +103,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // ========= deleting database ends here ---------------
 
+//===== login checking=====
+    public Boolean checkuserexist (String email_id , String phone_no){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + "register_table" + " where email_id = ? and phone_no = ? ", new String[]{ email_id,phone_no });
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+//
+    public Boolean checkusernamepassword(String email_id, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + "register_table" + " where email_id = ? and password = ? ", new String[] {email_id,password });
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
 
 
 

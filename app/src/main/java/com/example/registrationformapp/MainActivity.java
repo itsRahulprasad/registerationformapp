@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // -------button fetching ad storing them in varaible
+        // -------button fetching id storing them in varaible
         login_var = findViewById(R.id.loginBtn);
         reg_var = findViewById(R.id.regBtn);
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         String confpass = regConfpass.getText().toString();
 
         //---------- checking if validation is done successfully or not , if yes submit or register or if not data not inserted
-        if(!validateName() | !validateUsername() | !validateEmail() | !validatePhone() | !validatePassword() | !validateConfpass())
+        if(!validateName() | !validateUsername() | !validateEmail() | !validatePhone() | !validatePassword() | !validateConfpass() | !validateCheck())
         {
             return false;
         }
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     public void registerUser (View view){
         submitvalidate();
         if (!submitvalidate()){
-            Toast.makeText(this, "sibmission fail", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "user email id or phone no already exist", Toast.LENGTH_SHORT).show();
 
         }else{
             Toast.makeText(this, "register success", Toast.LENGTH_SHORT).show();
@@ -233,6 +233,23 @@ private Boolean validateName(){
         }
 
     }
+
+    // ------------ checking existing user email and phone no.
+    private Boolean validateCheck(){
+        String val = regEmail.getText().toString();
+        String Val1 = regPhone.getText().toString();
+        Boolean check= myDb.checkuserexist(val,Val1);
+
+            if (!check)
+            {
+                return true;
+            }
+            else {
+
+//                Toast.makeText(MainActivity.this, "user email id or phone no already exist", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
 
 
 

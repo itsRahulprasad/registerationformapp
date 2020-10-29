@@ -14,7 +14,7 @@ public class updatepage extends AppCompatActivity {
     DatabaseHelper myDb;
     Button updateBtn;
     EditText update_id;
-    
+
     EditText regName;
     EditText regUsername;
     EditText regEmail;
